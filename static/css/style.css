@@ -1,0 +1,94 @@
+.navbar-logo {
+    height: 70px;
+    max-height: 80px;
+    width: auto;
+}
+
+.rutoxicon-text {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.russian-corpus-text {
+    font-size: 1em;
+    opacity: 0.7;
+}
+
+.navbar-larger-text {
+    font-size: 1.2rem;
+}
+
+.navbar-hover-highlight {
+    margin-right: 2em;
+    border-radius: 20px; /* Adjust the value to control the roundness */
+    transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+
+.half-height-row {
+    height: 50vh; /* Viewport Height */
+}
+
+.col-half-height {
+    height: 100%; /* Fill the row's height */
+    /* border: 1px solid #ccc; /* For visual aid */
+    padding: 10px;
+}
+
+.navbar-hover-highlight:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Adjust the color and opacity as desired */
+    color: white; /*Adjust the color*/
+    backdrop-filter: blur(5px); /* Adjust the blur radius as desired */
+}
+
+.autocomplete-results {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    width: 80%;
+    top: 70%;
+    z-index: 1000; /* Ensure it's on top of other elements */
+    display: none; /* Initially hidden */
+  }
+
+  .autocomplete-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .autocomplete-results li {
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+
+  .autocomplete-results li:hover {
+    background-color: #f8f9fa;
+  }
+
+
+.main-container{
+    padding-top: 4rem;
+}
+
+@media (max-width: 768px) {
+    .navbar-logo {
+        height: 40px;
+    }
+
+    .rutoxicon-text {
+        font-size: 1.5em;
+    }
+
+    .russian-corpus-text {
+        font-size: 0.8em;
+    }
+
+    .smaller-margin {
+        margin-bottom: -0.1em; /* Adjust as needed, negative value reduces margin */
+    }
+        .bigger-li-text {
+        font-size: 1em; /* Adjust as needed, bigger value makes text bigger */
+    }
+}
+
