@@ -51,24 +51,24 @@
             <div class="dropdown">
               <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkFrom" data-bs-toggle="dropdown" aria-expanded="false">
                 Рейтинг от
-                <span class="badge bg-secondary" id="rating-from-badge">4</span>
+                <span class="badge bg-secondary" id="rating-from-badge">0</span>
               </a>
               <ul class="dropdown-menu menu-with-badge" aria-labelledby="dropdownMenuLink">
                 {% for i in range(11) %}
                 <li><a class="dropdown-item rating-from" href="#" data-value="{{ i }}">{{ i }}</a></li>
               {% endfor %}
               </ul>
-              <input type="hidden" id="rating_from" name="rating_from" value="4">
+              <input type="hidden" id="rating_from" name="rating_from" value="0">
               <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkTo" data-bs-toggle="dropdown" aria-expanded="false">
                 До
-                <span class="badge bg-secondary" id="rating-to-badge">4</span>
+                <span class="badge bg-secondary" id="rating-to-badge">10</span>
               </a>
               <ul class="dropdown-menu menu-with-badge" aria-labelledby="dropdownMenuLink">
                 {% for i in range(11) %}
                 <li><a class="dropdown-item rating-to" href="#" data-value="{{ i }}">{{ i }}</a></li>
               {% endfor %}
               </ul>
-              <input type="hidden" id="rating_to" name="rating_to" value="4">
+              <input type="hidden" id="rating_to" name="rating_to" value="10">
             </div>
           </div>
         </div>
@@ -189,10 +189,9 @@
         <div class="row mt-4 pt-4 ">
           <div class="col flex-column">
               <h2 class="fw-bold mb-5">Как пользоваться поиском +?</h1>
-              <p class="text-justify" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consectetur reprehenderit deleniti totam! Et eius labore, blanditiis fugit optio hic rem. Provident hic eveniet qui minus, repellat autem obcaecati iusto.
-              Voluptates officiis optio pariatur cum, blanditiis reprehenderit incidunt sint? Provident libero ipsum odit illo eum voluptas quis molestias quae magnam possimus commodi, labore voluptatum, aliquam sed dicta, odio sunt adipisci!
-              Magni quaerat quos, temporibus sit nulla rem tempora odit, illum, perferendis quae repudiandae. Maxime adipisci autem optio repellendus est molestias, obcaecati iste soluta quidem sit. Nostrum corrupti praesentium accusamus aperiam.
-              Asperiores enim repellendus a amet debitis sint corporis sit consequuntur incidunt, quibusdam veniam ad natus, facilis totam dolor nihil impedit necessitatibus ipsam vero pariatur dolorem quis autem minima! Officiis, voluptatibus.</p>
+              <p class="text-justify" style="text-align: justify;">
+                В поиске плюс Вы можете настроить выдачу согласно сделанной в корпусе разметки, что позволяет Вам выбрать рейтинг токсичности от 0 до 10, тип фразы: прямой (direct), переносный (indirect), функцию – тип токсичности, а также response – в сторону кого обращена токсичность.
+            </p>
           </div>
       </div>
 
@@ -203,11 +202,9 @@
             <svg class="bi me-2" width="40" height="32" aria-hidden="true"><use xlink:href="#bootstrap"></use></svg>
           </a>
           <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Ворованный</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">футер</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">азаза</a></li>
           </ul>
         </footer>
       </div>

@@ -61,21 +61,41 @@
     
             <div class="row">
                 <div class="col flex-column border-top">
-                    <h1 class="fw-bold">Some fancy header</h1>
-                    <p class="text-justify" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consectetur reprehenderit deleniti totam! Et eius labore, blanditiis fugit optio hic rem. Provident hic eveniet qui minus, repellat autem obcaecati iusto.
-                    Voluptates officiis optio pariatur cum, blanditiis reprehenderit incidunt sint? Provident libero ipsum odit illo eum voluptas quis molestias quae magnam possimus commodi, labore voluptatum, aliquam sed dicta, odio sunt adipisci!
-                    Magni quaerat quos, temporibus sit nulla rem tempora odit, illum, perferendis quae repudiandae. Maxime adipisci autem optio repellendus est molestias, obcaecati iste soluta quidem sit. Nostrum corrupti praesentium accusamus aperiam.
-                    Asperiores enim repellendus a amet debitis sint corporis sit consequuntur incidunt, quibusdam veniam ad natus, facilis totam dolor nihil impedit necessitatibus ipsam vero pariatur dolorem quis autem minima! Officiis, voluptatibus.</p>
+                    <h1 class="fw-bold">Поиск по леммам:</h1>
+                    <p class="text-justify" style="text-align: justify;">
+                      Сейчас Вы находитесь в разделе поиска по леммам. В поисковую строку Вы можете написать одно или несколько слов в любой форме, после чего поиск выдаст все возможные варианты комментариев, в которых эти слова встречаются. Слова в поиске могут находится в любом порядке относительно друг друга. По умолчанию поиск ведется по предпочтительным разборам, соседние слова могут совпадать.
+                    </p>
                 </div>
             </div>
     
             <div class="row">
                 <div class="col flex-column">
-                    <h1 class="fw-bold">One more fancy header</h1>
-                    <p class="text-justify" style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consectetur reprehenderit deleniti totam! Et eius labore, blanditiis fugit optio hic rem. Provident hic eveniet qui minus, repellat autem obcaecati iusto.
-                    Voluptates officiis optio pariatur cum, blanditiis reprehenderit incidunt sint? Provident libero ipsum odit illo eum voluptas quis molestias quae magnam possimus commodi, labore voluptatum, aliquam sed dicta, odio sunt adipisci!
-                    Magni quaerat quos, temporibus sit nulla rem tempora odit, illum, perferendis quae repudiandae. Maxime adipisci autem optio repellendus est molestias, obcaecati iste soluta quidem sit. Nostrum corrupti praesentium accusamus aperiam.
-                    Asperiores enim repellendus a amet debitis sint corporis sit consequuntur incidunt, quibusdam veniam ad natus, facilis totam dolor nihil impedit necessitatibus ipsam vero pariatur dolorem quis autem minima! Officiis, voluptatibus.</p>
+                    <h1 class="fw-bold">Формат выдачи ответов: </h1>
+                    <!-- <img src="{{ url_for('static', filename='img/tutor.png') }}" class="img-fluid" alt="sample search result"> -->
+                     <div class="example-corpus-entry">
+                <div class="row  mt-2">
+                  <div class="col-1">
+                    <p class="fs-4">1</p>
+                  </div>
+                  <div class="col text-start">
+                    <text>
+                      <tox rate="3" response="person" type="general_insult">Уважаемый, <phrase type="direct">ты реально <lex>глупый</lex> и не вкуриваешь</phrase>, о чьих именно трусах идет речь? Или просто <phrase type="indirect"><lex>дурака</lex> валяешь</phrase>?</tox>
+                      </text>
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-1"></div>
+                  <dev class="col text-start">
+                    <ul>
+                      <li><i>Рейтинг</i>: <strong>3</strong></li>
+                      <li><i>Тип токсичности</i>: <strong>general_insult </strong></li>
+                    </ul>
+                  </dev>
+                </div>
+              </div>
+                    <p class="text-justify" style="text-align: justify;">
+                      Результат поиска представляет собой пронумерованный список комментариев, к каждому из которых выдается его рейтинг и тип токсичности. Внутри комментария размечены тип фразы: голубой цвет обозначает фразы, в которых токсичность выражена переносно, а розовым – прямо. Ярким цветом обозначено само токсичное слово.
+                  </p>
                 </div>
             </div>
         </div>
@@ -88,18 +108,17 @@
             </a>
         
             <ul class="nav col-md-4 justify-content-end">
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Ворованный</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">футер</a></li>
+              <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">азаза</a></li>
             </ul>
           </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-   
+  
     <script>
         $(document).ready(function() {
           const searchInput = $('#search-input');

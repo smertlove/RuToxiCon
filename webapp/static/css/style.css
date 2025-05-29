@@ -105,6 +105,29 @@ phrase {
     border-bottom: 2px dotted #fff;
 }
 
+.example-corpus-entry phrase[type="direct"] {
+    background-color: #f7bfbf;
+}
+
+.example-corpus-entry  phrase[type="indirect"] {
+    background-color: #bcfcff;
+}
+
+
+.example-corpus-entry  lex {
+    background-color: #fc2727;
+    color: #fff;
+    border-bottom: 2px dotted #fff;
+}
+
+.example-corpus-entry  phrase[type="indirect"] lex {
+    background-color: #149a31;
+    color: #fff;
+    border-bottom: 2px dotted #fff;
+}
+
+
+
 @media (max-width: 768px) {
     .navbar-logo {
         height: 40px;
