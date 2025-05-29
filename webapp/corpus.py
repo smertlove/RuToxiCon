@@ -1,7 +1,5 @@
 import xml.etree.ElementTree as ET
 
-from pathlib import Path
-
 import razdel
 import pymorphy3 as pm
 from functools import lru_cache
