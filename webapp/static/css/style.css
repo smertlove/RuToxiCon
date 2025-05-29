@@ -85,12 +85,22 @@ phrase {
     text-decoration: none;
 }
 
-.corpus-entry:hover phrase {
+.corpus-entry:hover phrase[type="direct"] {
     background-color: #f7bfbf;
+}
+
+.corpus-entry:hover phrase[type="indirect"] {
+    background-color: #bcfcff;
 }
 
 .corpus-entry:hover lex {
     background-color: #fc2727;
+    color: #fff;
+    border-bottom: 2px dotted #fff;
+}
+
+.corpus-entry:hover phrase[type="indirect"] lex {
+    background-color: #149a31;
     color: #fff;
     border-bottom: 2px dotted #fff;
 }
