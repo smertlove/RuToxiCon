@@ -51,14 +51,14 @@
             <div class="dropdown">
               <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkFrom" data-bs-toggle="dropdown" aria-expanded="false">
                 Рейтинг от
-                <span class="badge bg-secondary" id="rating-from-badge">0</span>
+                <span class="badge bg-secondary" id="rating-from-badge">1</span>
               </a>
               <ul class="dropdown-menu menu-with-badge" aria-labelledby="dropdownMenuLink">
-                {% for i in range(11) %}
+                {% for i in range(1, 11) %}
                 <li><a class="dropdown-item rating-from" href="#" data-value="{{ i }}">{{ i }}</a></li>
               {% endfor %}
               </ul>
-              <input type="hidden" id="rating_from" name="rating_from" value="0">
+              <input type="hidden" id="rating_from" name="rating_from" value="1">
               <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkTo" data-bs-toggle="dropdown" aria-expanded="false">
                 До
                 <span class="badge bg-secondary" id="rating-to-badge">10</span>
