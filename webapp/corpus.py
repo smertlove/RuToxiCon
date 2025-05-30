@@ -200,7 +200,7 @@ class Corpus:
         if params.tox_types:
             sets.append(
                 reduce(
-                    lambda s1, s2: s1 | s2,
+                    lambda s1, s2: s1 & s2,
                     [
                         self.tox_type_index.get(tox_type, set())
                         for tox_type
