@@ -108,19 +108,56 @@ def search_results():
     token_counts = [sum(entry["entry"].tokens.values()) for entry in xmls]
     rates = [entry["entry"].rate for entry in xmls]
 
-    stats = {
-        "tokens_tot": sum(token_counts),
-        "tokens_min": min(token_counts),
-        "tokens_max": max(token_counts),
-        "tokens_avg": sum(token_counts) / len(token_counts),
-        "lex_tot": sum(lex_counts),
-        "lex_min": min(lex_counts),
-        "lex_max": max(lex_counts),
-        "lex_avg": sum(lex_counts) / len(lex_counts),
-        "rate_tot": sum(rates),
-        "rate_min": min(rates),
-        "rate_max": max(rates),
-        "rate_avg": sum(rates) / len(rates),
-    }
+    stats = {}
+
+
+    try:
+        stats["tokens_tot"] = sum(token_counts)
+    except Exception:
+        stats["tokens_tot"] = 0
+    try:
+        stats["tokens_min"] = min(token_counts)
+    except Exception:
+        stats["tokens_min"] = 0
+    try:
+        stats["tokens_max"] = max(token_counts)
+    except Exception:
+        stats["tokens_max"] = 0
+    try:
+        stats["tokens_avg"] = sum(token_counts) / len(token_counts)
+    except Exception:
+        stats["tokens_avg"] = 0
+    try:
+        stats["lex_tot"] = sum(lex_counts)
+    except Exception:
+        stats["lex_tot"] = 0
+    try:
+        stats["lex_min"] = min(lex_counts)
+    except Exception:
+        stats["lex_min"] = 0
+    try:
+        stats["lex_max"] = max(lex_counts)
+    except Exception:
+        stats["lex_max"] = 0
+    try:
+        stats["lex_avg"] = sum(lex_counts) / len(lex_counts)
+    except Exception:
+        stats["lex_avg"] = 0
+    try:
+        stats["rate_tot"] = sum(rates)
+    except Exception:
+        stats["rate_tot"] = 0
+    try:
+        stats["rate_min"] = min(rates)
+    except Exception:
+        stats["rate_min"] = 0
+    try:
+        stats["rate_max"] = max(rates)
+    except Exception:
+        stats["rate_max"] = 0
+    try:
+        stats["rate_avg"] = sum(rates) / len(rates  )
+    except Exception:
+        stats["rate_avg"] = 0
 
     return render_template("search_results.html", data=xmls, stats=stats)
