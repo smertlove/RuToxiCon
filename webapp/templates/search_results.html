@@ -44,7 +44,63 @@
 
         <div class="row mt-4 pt-4">
           <div class="col flex-column">
-              <h2 class="fw-bold mb-5">Результаты поиска:</h1>
+              <h2 class="fw-bold mb-5">Результаты поиска ({{data|length}} результатов):</h2>
+<h2 class="mb-4"> Статистика </h2>
+   <div class="row"> 
+        
+
+        <div class="col-md-4 mb-4"> 
+            <div class="card h-100"> 
+                <div class="card-header bg-secondary text-white">
+                    <h5>Tokens</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Total: {{ stats.tokens_tot }}</li>
+                        <li class="list-group-item">Min: {{ stats.tokens_min }}</li>
+                        <li class="list-group-item">Max: {{ stats.tokens_max }}</li>
+                        <li class="list-group-item">Avg: {{ "%.0f"|format(stats.tokens_avg) }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-secondary text-white">
+                    <h5>Toxic lexicon</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Total: {{ stats.lex_tot }}</li>
+                        <li class="list-group-item">Min: {{ stats.lex_min }}</li>
+                        <li class="list-group-item">Max: {{ stats.lex_max }}</li>
+                        <li class="list-group-item">Avg: {{ "%.0f"|format(stats.lex_avg) }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-secondary text-white">
+                    <h5>Rate</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Total: {{ stats.rate_tot }}</li>
+                        <li class="list-group-item">Min: {{ stats.rate_min }}</li>
+                        <li class="list-group-item">Max: {{ stats.rate_max }}</li>
+                        <li class="list-group-item">Avg: {{ "%.0f"|format(stats.rate_avg) }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+      <h2 class="mb-4"> Языковой материал </h2>
 
                 {% for elem in data %}
                 <div class="corpus-entry">
@@ -58,13 +114,35 @@
                 </div>
                 <div class="row mb-2">
                   <div class="col-1"></div>
-                  <dev class="col text-start">
+                  <div class="col text-start">
+                    <div class="row">
+                      <div class="col-4">
                     <ul>
                       <li><i>Рейтинг</i>: <strong>{{elem.rate}}</strong></li>
-                      <li><i>Тип токсичности</i>: <strong>{% for type in elem.tox_types %}{{type}} {% endfor %}</strong></li>
+                      <li><i>Тип токсичности</i>: <strong>{{elem.tox_types}}</strong></li>
                     </ul>
-                  </dev>
+                      </div>
+                      <div class="col-4">
+                    <ul>
+                      <li><i>Тип фразы</i>: <strong>{{elem.phrase_types }} </strong></li>
+                      <li><i>Тип таргета</i>: <strong>{{elem.responses}} </strong></li>
+                    </ul>
+                      </div>
+                    </div>
+                    {% if elem.regex_match is not none %}
+                   <div class="row">
+                      <div class="col-12">
+                    <ul>
+                      <li><i>Регулярное совпадение</i>: <strong>{{elem.regex_match}}</strong></li>
+                    </ul>
+                      </div>
+                    </div>
+                      {% endif %}
+
+                  </div>
                 </div>
+
+                
               </div>
                 <div class="border-top"></div>
 

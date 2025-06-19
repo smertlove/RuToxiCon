@@ -7,6 +7,7 @@ from string import punctuation
 from collections import Counter
 from uuid import uuid4
 from functools import reduce
+from nltk.stem.snowball import SnowballStemmer
 
 
 def get_all_text(et: ET):
@@ -27,26 +28,38 @@ class Lemmatizer:
         return cls.morph.parse(word)[0].normal_form
 
 
-def get_all_lemmas(sent: str, punc=set(punctuation)) -> list[str]:
+class Stemmer:
+
+    stemmer = SnowballStemmer("russian")
+
+    @classmethod
+    @lru_cache(123456789)
+    def stem(cls, word:str) -> str:
+        return cls.stemmer.stem(word)
+
+
+
+def get_all_preproc(sent: str, preproc, punc=set(punctuation)) -> list[str]:
     tokens = [tok.text for tok in razdel.tokenize(sent)]
-    return [Lemmatizer.lemmatize(tok) for tok in tokens if tok not in punc]
+    return [preproc(tok) for tok in tokens if tok not in punc]
 
 
 class CorpusEntry:
 
-    def __init__(self, et: ET):
+    def __init__(self, et: ET, preproc: str):
 
         self.uuid = uuid4()
         self.xml = et
 
         self.tokens = Counter(
-            get_all_lemmas(
-                get_all_text(self.xml).strip()
+            get_all_preproc(
+                get_all_text(self.xml).strip(),
+                preproc
             )
         )
 
         lex_tokens = [c.text.lower() for c in self.xml.findall(".//lex")]
-        lex_lemmas = [Lemmatizer.lemmatize(c) for c in lex_tokens]
+        lex_lemmas = [preproc(c) for c in lex_tokens]
 
         self.lex_tokens = Counter(lex_tokens)
         self.lex_lemmas = Counter(lex_lemmas)
@@ -107,7 +120,13 @@ class SearchParams:
 
 class Corpus:
 
-    def __init__(self, path: str):
+    def __init__(self, path: str, preproc: str|None = None):
+
+        self.preproc = {
+            "lemmatizer": Lemmatizer.lemmatize,
+            "stemmer": Stemmer.stem,
+            None: lambda word: word
+        }.get(preproc)
 
         self.entries: dict[int, CorpusEntry] = dict()
         self.lemma_index       = dict()
@@ -133,7 +152,7 @@ class Corpus:
         return len(self.entries)
 
     def append(self, et):
-        self.entries[len(self)] = CorpusEntry(et)
+        self.entries[len(self)] = CorpusEntry(et, self.preproc)
 
     def __repr__(self):
         return f"{self.__class__.__name__}({len(self)} entries)"
@@ -168,7 +187,7 @@ class Corpus:
         sets = [
             self.lemma_index.get(token, set())
             for token
-            in get_all_lemmas(params.query)
+            in get_all_preproc(params.query, self.preproc)
         ]
 
         # Множество записей с подходящими rate

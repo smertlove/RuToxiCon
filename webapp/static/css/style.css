@@ -85,6 +85,10 @@ phrase {
     text-decoration: none;
 }
 
+.corpus-entry text {
+    font-size: larger;
+}
+
 .corpus-entry:hover phrase[type="direct"] {
     background-color: #f7bfbf;
 }
